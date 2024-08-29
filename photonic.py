@@ -50,5 +50,23 @@ def grating_coupler() -> gf.Component:
     return
 
 @gf.cell
-def photonic_crystal_wvg() ->gf.Component:
+def PhC_wvg() -> gf.Component:
     return
+
+@gf.cell
+def ring_single_bus(gap: float, 
+                    r: float, 
+                    width: float,
+                    angle: float,
+                    bus_length) -> gf.Component:
+    
+    component = gf.Component()
+    component.add_ref(gf.components.ring(radius=r, 
+                                         width=width,
+                                         angle_resolution=1.0,
+                                         layer=LAYER.WG,
+                                         angle=angle))
+    component.add_ref(gf.components.straight(length=bus_length))
+    
+
+    

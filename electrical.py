@@ -1,7 +1,5 @@
 import gdsfactory as gf
-from layer_map import LayerMapUDNF
-
-LAYER = LayerMapUDNF()
+from layer_map import LAYER
 
 @gf.cell
 def deep_etch_pit(size: tuple) -> gf.Component: 

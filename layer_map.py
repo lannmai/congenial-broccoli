@@ -16,10 +16,12 @@ class LayerMapUDNF(LayerMap):
     TEXT: Layer = (199, 0)
     
     ID_COUPLER_BIG: Layer = (0, 0)
-    ID_COUPLER_SMALL = (1, 0)
+    ID_COUPLER_SMALL: Layer = (1, 0)
+    WG: Layer = (2, 0)
     GRATING_COUPLER: Layer = (10, 0)
     SHALLOW_ETCH: Layer = (11, 0)
     DEEP_ETCH: Layer = (99, 0)
 
     FDTD: Layer = (30, 1)
-    
+
+LAYER = LayerMapUDNF
