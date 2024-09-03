@@ -61,12 +61,6 @@ def ring_single_bus(gap: float,
                     bus_length) -> gf.Component:
     
     component = gf.Component()
-    component.add_ref(gf.components.ring(radius=r, 
-                                         width=width,
-                                         angle_resolution=1.0,
-                                         layer=LAYER.WG,
-                                         angle=angle))
-    component.add_ref(gf.components.straight(length=bus_length))
     
-
-    
+if __name__ == "__main__":
+    print("photonic.py has been invoked")
