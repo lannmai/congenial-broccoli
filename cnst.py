@@ -1,5 +1,6 @@
 import gdsfactory as gf
 import os
+from layer_map import LAYER
 
 def run_cnst(cnstpath: str, 
              cnst_jar_path: str,
@@ -15,15 +16,24 @@ def run_cnst(cnstpath: str,
 
     os.system(cnst_run_comm + cnstpath + ' ' + gds_filename)
 
-def remove_gds_cnst(gdspath: str,
+def remove_gds(gdspath: str,
                     cnstpath: str):
     
     os.remove(gdspath)
-    os.remove(cnstpath)
+    os.remove(gdspath + '.log')
 
-# TODO
-def remap_layers(component: gf.Component):
-    return 0
+def cnst_to_gf(cnstpath: str,
+               cnst_jar_path: str,
+               javafx_sdk_path: str,
+               gds_filename: str):   
+
+    run_cnst(cnstpath, cnst_jar_path, javafx_sdk_path, gds_filename)
+     
+    component = gf.import_gds(str('gds/' + gds_filename))
+    
+    remove_gds(str('gds/' + gds_filename), cnstpath)
+
+    return component
 
 if __name__ == "__main__":
     print("cnst.py has been invoked")
