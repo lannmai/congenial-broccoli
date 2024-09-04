@@ -23,5 +23,6 @@ class LayerMapUDNF(LayerMap):
     DEEP_ETCH: Layer = (99, 0)
 
     FDTD: Layer = (30, 1)
+    CNST: Layer = (255, 255)
 
 LAYER = LayerMapUDNF
