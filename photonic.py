@@ -1,8 +1,12 @@
 import gdsfactory as gf
 import math
 from layer_map import LayerMapUDNF
+import cnst
 
 LAYER = LayerMapUDNF()
+
+CNST_JAR_PATH = 'CNSTNanolithographyToolboxV2016.10.01.jar'
+JAVA_FX_SDK_PATH = '~/javafx-sdk-22.0-2.2/lib',
 
 @gf.cell
 def PhC_2D_hex_lattice(r: float,
@@ -50,8 +54,12 @@ def grating_coupler() -> gf.Component:
     return
 
 @gf.cell
-def PhC_wvg() -> gf.Component:
-    return
+def W1_PhC_wvg() -> gf.Component:
+    cnstpath = 'cnst_scripts/W1_PhC_wvg.cnst'
+    component = cnst.cnst_to_gf(cnstpath, CNST_JAR_PATH, JAVA_FX_SDK_PATH, 'W1_PhC_wvg.gds')
+    
+    component.flatten()
+    return component
 
 @gf.cell
 def ring_single_bus(gap: float, 
