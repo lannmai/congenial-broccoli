@@ -1,12 +1,10 @@
 import gdsfactory as gf
 import math
-from layer_map import LayerMapUDNF
+from layer_map import LAYER
 import cnst
 
-LAYER = LayerMapUDNF()
-
 CNST_JAR_PATH = 'CNSTNanolithographyToolboxV2016.10.01.jar'
-JAVA_FX_SDK_PATH = '~/javafx-sdk-22.0-2.2/lib',
+JAVA_FX_SDK_PATH = '~/javafx-sdk-22.0-2.2/lib'
 
 @gf.cell
 def PhC_2D_hex_lattice(r: float,
