@@ -27,7 +27,7 @@ def PhC_2D_hex_lattice(r: float,
     component = gf.Component()
     hole = gf.components.circle(radius=r,
                                 angle_resolution=angle_resolution,
-                                layer=LAYER.SHALLOW_ETCH)
+                                layer=LAYER.SHALLOW_DRY_ETCH)
 
     for i in range(n_rows):
         if i % 2 == 0:
@@ -38,8 +38,8 @@ def PhC_2D_hex_lattice(r: float,
             N = n_holes + 1
         for j in range(N):
             # Add a hole at a position based on the i, j values. 
-            component.add_ref(hole).dmovex(((j - (n_holes) / 2) * a + shift, 
-                                            (w / 2 + r) + i * math.sqrt(3) * a / 2))
+            (component.add_ref(hole)).dmovex((j - (n_holes) / 2) * a + shift, 
+                                              (w / 2 + r) + i * math.sqrt(3) * a / 2)
     
     return component
 
@@ -57,6 +57,21 @@ def W1_PhC_wvg() -> gf.Component:
     component = cnst.cnst_to_gf(cnstpath, CNST_JAR_PATH, JAVA_FX_SDK_PATH, 'W1_PhC_wvg.gds')
     
     component.flatten()
+
+    component.add_port(name='o1', 
+                       center=(component.dxmin, (component.dymax+component.dymin)/2),
+                       orientation=180,
+                       port_type='optical',
+                       layer = LAYER.SHALLOW_DRY_ETCH,
+                       width=0.38)
+    
+    component.add_port(name='o2', 
+                       center=(component.dxmax, (component.dymax+component.dymin)/2),
+                       orientation=0,
+                       port_type='optical',
+                       layer = LAYER.SHALLOW_DRY_ETCH,
+                       width=0.38)
+    
     return component
 
 @gf.cell
