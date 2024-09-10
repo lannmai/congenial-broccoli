@@ -3,11 +3,11 @@ import math
 from layer_map import LAYER
 
 @gf.cell
-def PhC_2D_hex_lattice(r: float,
-                       a: float,
-                       angle_resolution: float,
-                       n_cols: int,
-                       n_rows: int) -> gf.Component:
+def PhC_2D_hex_lattice(r: float = 0.5,
+                       a: float = 1.0,
+                       angle_resolution: float = 1.0,
+                       n_cols: int = 10,
+                       n_rows: int = 5) -> gf.Component:
     
     component = gf.Component()
     hole = gf.components.circle(radius=r,
@@ -26,14 +26,6 @@ def PhC_2D_hex_lattice(r: float,
 
     return component
 
-@gf.cell
-def inverse_design_coupler_wvg() -> gf.Component:
-    return
-
-@gf.cell
-def grating_coupler() -> gf.Component:
-    return
-
-@gf.cell
-def PhC_wvg() -> gf.Component:
-    return   
+if __name__ == "__main__":
+    c = PhC_2D_hex_lattice()
+    c.show()
