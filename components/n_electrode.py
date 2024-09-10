@@ -14,3 +14,7 @@ def n_electrode(size) -> gf.Component:
                                               round_corners_north_south=False))
 
     return component
+
+if __name__ == "__main__":
+    c = n_electrode(size=(5, 5))
+    c.show()

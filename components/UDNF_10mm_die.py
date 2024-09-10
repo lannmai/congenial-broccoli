@@ -1,23 +1,5 @@
 import gdsfactory as gf
-from layer_map import LayerMapUDNF
-
-LAYER = LayerMapUDNF()
-
-@gf.cell
-def UDNF_10mm_laser_markers() -> gf.Component:
-    return 
-
-@gf.cell
-def UDNF_10mm_PAM_arrays() ->gf.Component:
-    return
-
-@gf.cell
-def UDNF_10mm_EBL_squares_20um() -> gf.Component:
-    return
-
-@gf.cell
-def UDNF_10mm_EBL_markers() -> gf.Component:
-    return
+from layer_map import LAYER
 
 @gf.cell
 def UDNF_10mm_die(sample_id: str,
@@ -32,14 +14,9 @@ def UDNF_10mm_die(sample_id: str,
                                         text_size = 100.0,
                                         text_location = 'N',
                                         layer = LAYER.FLOORPLAN))
-    
-    if EBL_markers == True:
-        component.add_ref(UDNF_10mm_EBL_markers)
-    if laser_markers == True:
-        component.add_ref(UDNF_10mm_laser_markers)
 
     return component
 
-@gf.cell
-def label() -> gf.Component:
-    return
+if __name__ == "__main__":
+    c = UDNF_10mm_die(sample_id="die_1")
+    c.show()

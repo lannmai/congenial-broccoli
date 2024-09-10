@@ -14,3 +14,7 @@ def p_electrode(size: tuple) -> gf.Component:
                                               round_corners_north_south=False))
     
     return component
+
+if __name__ == "__main__":
+    c = p_electrode(size=(5, 5))
+    c.show()
