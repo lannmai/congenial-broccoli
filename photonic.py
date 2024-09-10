@@ -36,8 +36,8 @@ def PhC_2D_hex_lattice(r: float,
             N = n_holes + 1
         for j in range(N):
             # Add a hole at a position based on the i, j values. 
-            component.add_ref(hole).dmovex(((j - (n_holes) / 2) * a + shift, 
-                                            (w / 2 + r) + i * math.sqrt(3) * a / 2))
+            component.add_ref(hole).dmovex((j - (n_holes) / 2) * a + shift, 
+                                           (w / 2 + r) + i * math.sqrt(3) * a / 2)
     
     return component
 
