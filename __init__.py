@@ -8,7 +8,7 @@ __version__ = "0.0.1"
 __all__ = [
     "LAYER",
     "cells",
-    "PDK",
+    "pdk",
     "__version__",
 ]
 
