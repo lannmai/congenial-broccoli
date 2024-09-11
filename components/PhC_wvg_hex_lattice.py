@@ -6,13 +6,14 @@ from components.PhC_2D_hex_lattice import PhC_2D_hex_lattice
 def PhC_wvg_hex_lattice(r: float,
                         a: float,
                         angle_resolution: float,
-                        n_cols: int,
                         n_rows: int,
+                        n_holes: int,
                         width: float,
                         wvg_type: str) -> gf.Component:
     
     component = gf.Component()
-    phc = PhC_2D_hex_lattice(r, a, angle_resolution, n_cols, n_rows)
+    phc = PhC_2D_hex_lattice(r=r, a=a, angle_resolution=angle_resolution, 
+                             n_rows=n_rows, n_holes=n_holes)
     top_half = component.add_ref(phc)
 
     if wvg_type == 'W1': 
