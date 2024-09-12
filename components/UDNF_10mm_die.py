@@ -8,12 +8,12 @@ def UDNF_10mm_die(sample_id: str,
     
     component = gf.Component()
     component.add_ref(gf.components.die(size=(10000.0, 10000.0),
-                                        street_width = 0,
-                                        street_length = 0,
-                                        die_name = sample_id,
-                                        text_size = 100.0,
-                                        text_location = 'N',
-                                        layer = LAYER.FLOORPLAN))
+                                        street_width=0,
+                                        street_length=0,
+                                        die_name=sample_id,
+                                        text_size=100.0,
+                                        text_location='N',
+                                        layer=LAYER.FLOORPLAN))
 
     return component
 
