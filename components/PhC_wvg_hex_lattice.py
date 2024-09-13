@@ -22,12 +22,13 @@ def PhC_wvg_hex_lattice(r: float = 0.2,
 
     if wvg_type == 1: 
         component.add_ref(component=phc).dmirror_y(top_half.dy-(a*math.sqrt(3)- 2*r + top_half.dysize)/2)
+        return component
     elif wvg_type == 3:
         component.add_ref(component=phc).dmirror_y(top_half.dy - (a*2*math.sqrt(3) - 2*r + top_half.dysize)/2)
+        return component
     else:
         component.add_ref(component=phc).dmirror_y(top_half.dy - (width + top_half.dysize)/2)
-
-    return component
+        return component
 
 if __name__ == "__main__":
     component = PhC_wvg_hex_lattice()
