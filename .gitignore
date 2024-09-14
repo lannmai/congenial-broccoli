@@ -163,4 +163,4 @@ cython_debug/
 
 .DS_Store
 cnst_scripts/
-quick_test.ipynb
+./quick_test.ipynb

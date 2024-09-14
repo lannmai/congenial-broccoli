@@ -11,6 +11,7 @@ from components.strip_waveguide import strip_waveguide
 
 from components.p_electrode import p_electrode
 from components.n_electrode import n_electrode
+from components.hex_lattice import HexLattice
 
 # from gdsfactory.components __init__.py
 cells = gf.get_cells(sys.modules[__name__])

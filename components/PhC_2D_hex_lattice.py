@@ -1,6 +1,7 @@
 import gdsfactory as gf
 import math
 from layer_map import LAYER
+from components.hex_lattice import HexLattice
 
 @gf.cell
 def PhC_2D_hex_lattice(r: float = 0.2,
@@ -13,15 +14,9 @@ def PhC_2D_hex_lattice(r: float = 0.2,
     hole = gf.components.circle(radius=r,
                                 angle_resolution=angle_resolution,
                                 layer=LAYER.SHALLOW_DRY_ETCH)
-    
-    for i in range(n_rows):
-        for j in range(n_holes):
-            if i%2 == 0:
-                component.add_ref(component=hole).dmove((j*a, 
-                                                         i*a*math.sqrt(3)/2))
-            if i%2 == 1 and j <= n_holes-2:
-                component.add_ref(component=hole).dmove(((2*j+1)*(a/2), 
-                                                         i*a*math.sqrt(3)/2))
+    hex_lattice = HexLattice(a=a, elem=hole)
+    component.add_ref(hex_lattice.generate(n_rows=n_rows,
+                                           n_holes=n_holes))
 
     return component
 
