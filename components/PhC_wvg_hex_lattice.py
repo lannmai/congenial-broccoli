@@ -16,8 +16,11 @@ def PhC_wvg_hex_lattice(r: float = 0.2,
         raise Exception("Specify waveguide width or type (1 for W1 or 3 for W3)")
     
     component = gf.Component()
-    phc = PhC_2D_hex_lattice(r=r, a=a, angle_resolution=angle_resolution, 
-                             n_rows=n_rows, n_holes=n_holes)
+    phc = PhC_2D_hex_lattice(r=r, 
+                             a=a, 
+                             angle_resolution=angle_resolution, 
+                             n_rows=n_rows, 
+                             n_holes=n_holes)
     top_half = component.add_ref(component=phc)
 
     if wvg_type == 1: 
